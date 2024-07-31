@@ -18,14 +18,14 @@
 #include "image_compressor.h"
 
 /*
- * Converts a given image to a two-dimensional array of pixel colour values.
+ * Helper function to convert a given image to a two-dimensional array of pixel colour values.
  * Determines the total number of pixels in the image and allocates an array to store them.
  * Each subarray of the pixel array is populated with the pixel's corresponding colour, represented as an array of its colour channels.
  * The value of each colour channel is cast to a double for compatability with the KMeans model.
  *
  * Returns a two-dimensional array of pixel colour values, or a NULL if dynamic allocation fails.
  */
-double** image_to_data(uint8_t* image, int width, int height, int channels) {
+static double** image_to_data(uint8_t* image, int width, int height, int channels) {
     // Dymanically allocate the pixel-colour array.
     int num_pixels = width * height;
     double** pixel_array = (double**) malloc(num_pixels * sizeof(double*));
@@ -62,12 +62,12 @@ double** image_to_data(uint8_t* image, int width, int height, int channels) {
 }
 
 /*
- * Converts a two-dimensional array of pixel colour values to a given image.
+ * Helper function to convert a two-dimensional array of pixel colour values to a given image.
  * The image data array is populated with the corresponding colour values, where each double channel is cast to the uint8_t.
  * 
  * Returns void but directly modifies the parsed image data array.
  */
-void data_to_image(double** pixel_array, uint8_t* image, int width, int height, int channels) {
+static void data_to_image(double** pixel_array, uint8_t* image, int width, int height, int channels) {
     // Determine the quantity of pixels according to the parsed dimensions.
     int num_pixels = width * height;
 
