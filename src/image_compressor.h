@@ -1,8 +1,7 @@
+#include <stdint.h>
+
 #ifndef IMAGE_COMPRESSOR_H
 #define IMAGE_COMPRESSOR_H
-
-
-#include <stdint.h>
 
 /* FUNCTION PROTOTYPES */
 

@@ -90,7 +90,7 @@ static void data_to_image(double** pixel_array, uint8_t* image, int width, int h
  * Returns a suitable exit code to indicate the success/failure of the image compression.
  */
 int compress_image(const char* input_image, const char* output_image, int num_clusters, int num_iterations) {
-
+    // Declare the image dimensions and channel counter and load the image.
     int width, height, channels;
     uint8_t* image = stbi_load(input_image, &width, &height, &channels, 0);
 
